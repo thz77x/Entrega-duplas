@@ -60,3 +60,25 @@
     botao.addEventListener('click', alternarTema);
   }
 })();
+
+// --- RECURSO AVANÇADO 1: TESTE DE AUTOPERCEPÇÃO ---
+const formTeste = document.getElementById('form-teste');
+const resultadoTeste = document.getElementById('resultado-teste');
+
+if (formTeste) {
+    formTeste.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const score = parseInt(document.getElementById('q1').value) + parseInt(document.getElementById('q2').value);
+        
+        let feedback = "";
+        if (score <= 5) {
+            feedback = "Equilíbrio saudável. Mantém um bom limite entre propósito e vida pessoal.";
+        } else if (score <= 15) {
+            feedback = "Atenção: A sua busca por propósito está a gerar sinais de sobrecarga.";
+        } else {
+            feedback = "Alerta Vermelho: Alto risco de Burnout. O trabalho está a consumir o seu bem-estar.";
+        }
+        
+        resultadoTeste.innerHTML = `A sua pontuação: ${score}/20 <br> <span class="text-primary">${feedback}</span>`;
+    });
+}
