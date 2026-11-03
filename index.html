@@ -38,7 +38,7 @@
     </header>
 
     <main>
-        <section id="introducao">
+        <section id="introducao" class="container text-center mt-5">
             <h1>A armadilha do propósito: quando o sentido vira sobrecarga</h1>
             <p>
                 A Geração Z entrou no mercado de trabalho em busca de sentido, impacto e autonomia. Mas esse desejo
@@ -118,19 +118,71 @@
             </div>
         </section>
         <section id="dados" class="container my-5">
-            <h2 class="mb-4">Dados: Insatisfação por Geração</h2>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8">
-                    <canvas id="graficoVidalink"></canvas>
+            <h2 class="mb-3">O cenário em dados</h2>
+            <p class="text-body-secondary mb-4">
+                Pesquisas recentes ajudam a dimensionar os desafios de bem-estar e saúde mental
+                que atravessam diferentes gerações e faixas etárias.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-6">
+                    <article class="card h-100 shadow-sm grafico-card">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Sentimentos negativos por geração</h3>
+                            <p class="card-text text-body-secondary small">
+                                Percentual de profissionais que relatam ansiedade, angústia ou desânimo
+                                na maior parte dos dias.
+                            </p>
+                            <div class="grafico-container">
+                                <canvas id="graficoVidalink" role="img"
+                                    aria-label="Gráfico de barras horizontais: Geração Z 78%, Millennials 68%, Geração X 66% e Baby Boomers 43%."></canvas>
+                            </div>
+                            <p class="small text-body-secondary mt-3 mb-0">
+                                O Check-up de Bem-estar 2026 reuniu respostas de 11.800 profissionais
+                                de 290 empresas. Os dados descrevem os participantes da pesquisa e não
+                                devem ser usados para rotular uma geração.
+                                Fonte: <a href="https://vidalink.com.br/blog/check-up-de-bem-estar-2026/"
+                                    target="_blank" rel="noopener noreferrer">Vidalink, Check-up de Bem-estar 2026</a>.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <article class="card h-100 shadow-sm grafico-card">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Internações por faixa etária</h3>
+                            <p class="card-text text-body-secondary small">
+                                Taxa de internações por transtornos mentais e comportamentais,
+                                por 100 mil habitantes.
+                            </p>
+                            <div class="grafico-container">
+                                <canvas id="graficoFiocruz" role="img"
+                                    aria-label="Gráfico de colunas: taxa de internação de 624,8 por 100 mil habitantes entre 20 e 24 anos, 719,7 entre 25 e 29 anos e 599,4 entre pessoas com 30 anos ou mais."></canvas>
+                            </div>
+                            <p class="small text-body-secondary mt-3 mb-0">
+                                Os números abrangem internações por transtornos mentais e comportamentais;
+                                não são específicos de Burnout. Fonte: <a
+                                    href="https://fiocruz.br/documento/2025/12/informe-ii-saude-mental-ciclo-de-informes-sobre-situacao-de-saude-da-juventude"
+                                    target="_blank" rel="noopener noreferrer">Fiocruz, Informe II: Saúde Mental</a>.
+                            </p>
+                        </div>
+                    </article>
                 </div>
             </div>
+
+            <p class="small text-body-secondary mt-3">
+                Observação: as pesquisas usam populações, períodos e indicadores diferentes.
+                Portanto, os dois gráficos devem ser interpretados separadamente.
+            </p>
         </section>
         <section id="teste" class="container my-5">
             <h2 class="mb-4">Teste de Autopercepção</h2>
             <div class="card p-4">
                 <form id="form-teste">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">1. Sente-se culpado(a) quando não está sendo produtivo(a)?</label>
+                        <label class="form-label fw-bold">1. Sente-se culpado(a) quando não está sendo
+                            produtivo(a)?</label>
                         <select class="form-select" id="q1" required>
                             <option value="">Selecione...</option>
                             <option value="0">Raramente</option>
@@ -139,7 +191,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">2. O seu "propósito" no trabalho justifica fazer horas extra não remuneradas?</label>
+                        <label class="form-label fw-bold">2. O seu "propósito" no trabalho justifica fazer horas extra
+                            não remuneradas?</label>
                         <select class="form-select" id="q2" required>
                             <option value="">Selecione...</option>
                             <option value="0">Nunca</option>
@@ -183,7 +236,8 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
 </body>
 
 </html>

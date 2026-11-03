@@ -3,24 +3,58 @@
 :root {
     --cor-fundo: #ffffff;
     --cor-texto: #212529;
+    --cor-superficie: #ffffff;
+    --cor-borda-grafico: rgba(33, 37, 41, 0.12);
+    --cor-texto-grafico: #495057;
 }
 
 [data-bs-theme="dark"] {
     --cor-fundo: #212529;
     --cor-texto: #ffffff;
+    --cor-superficie: #2b3035;
+    --cor-borda-grafico: rgba(255, 255, 255, 0.14);
+    --cor-texto-grafico: #dee2e6;
 }
 
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    font-family: inter,sans-serif;
+    font-family: inter, sans-serif;
     transition: background-color 0.3s, color 0.3s ease;
 }
 
-a, button {
+a,
+button {
     transition: opacity 0.2s ease;
 }
 
-a:hover, button:hover {
+a:hover,
+button:hover {
     opacity: 0.7;
-} 
+}
+
+.grafico-card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda-grafico);
+    border-radius: 1rem;
+}
+
+.grafico-card .card-body {
+    padding: 1.25rem;
+}
+
+.grafico-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+#dados a {
+    color: var(--cor-destaque);
+}
+
+@media (max-width: 575.98px) {
+    .grafico-container {
+        height: 260px;
+    }
+}

@@ -61,24 +61,176 @@
   }
 })();
 
+
 // --- RECURSO AVANÇADO 1: TESTE DE AUTOPERCEPÇÃO ---
+
 const formTeste = document.getElementById('form-teste');
 const resultadoTeste = document.getElementById('resultado-teste');
 
-if (formTeste) {
+if (formTeste && resultadoTeste) {
+
+    // Permite que leitores de tela anunciem o resultado
+    resultadoTeste.setAttribute('aria-live', 'polite');
+
     formTeste.addEventListener('submit', (e) => {
         e.preventDefault();
-        const score = parseInt(document.getElementById('q1').value) + parseInt(document.getElementById('q2').value);
-        
-        let feedback = "";
-        if (score <= 5) {
-            feedback = "Equilíbrio saudável. Mantém um bom limite entre propósito e vida pessoal.";
-        } else if (score <= 15) {
-            feedback = "Atenção: A sua busca por propósito está a gerar sinais de sobrecarga.";
-        } else {
-            feedback = "Alerta Vermelho: Alto risco de Burnout. O trabalho está a consumir o seu bem-estar.";
+
+        // Captura os campos do formulário
+        const campoQ1 = formTeste.querySelector('#q1');
+        const campoQ2 = formTeste.querySelector('#q2');
+
+        // Verifica se os campos existem e foram preenchidos
+        if (!campoQ1 || !campoQ2 ||
+            campoQ1.value === '' || campoQ2.value === '') {
+
+            resultadoTeste.textContent = 'Por favor, responda às duas perguntas.';
+            return;
         }
-        
-        resultadoTeste.innerHTML = `A sua pontuação: ${score}/20 <br> <span class="text-primary">${feedback}</span>`;
+
+        // Converte as respostas para números
+        const resposta1 = Number(campoQ1.value);
+        const resposta2 = Number(campoQ2.value);
+
+        // Verifica se os valores são válidos
+        if (!Number.isFinite(resposta1) ||
+            !Number.isFinite(resposta2)) {
+
+            resultadoTeste.textContent = 'Respostas inválidas. Tente novamente.';
+            return;
+        }
+
+        // Calcula a pontuação total
+        const score = resposta1 + resposta2;
+
+        // Define o feedback de acordo com a pontuação
+        let feedback = '';
+
+        if (score <= 5) {
+
+            feedback = 'Suas respostas indicam poucos sinais de sobrecarga nas situações avaliadas. Continue observando seus limites.';
+
+        } else if (score <= 15) {
+
+            feedback = 'Atenção: suas respostas indicam alguns pontos de sobrecarga que merecem reflexão.';
+
+        } else {
+
+            feedback = 'Suas respostas indicam maior frequência de situações de sobrecarga. Vale refletir sobre seus limites e buscar apoio, se necessário.';
+
+        }
+
+        // Cria os elementos do resultado
+        const pontuacao = document.createElement('p');
+        pontuacao.className = 'mb-2';
+        pontuacao.textContent = `Sua pontuação: ${score}/20`;
+
+        const mensagem = document.createElement('p');
+        mensagem.className = 'text-primary mb-2';
+        mensagem.textContent = feedback;
+
+        const observacao = document.createElement('small');
+        observacao.className = 'd-block mt-2 text-body-secondary fw-normal';
+        observacao.textContent =
+            'Este questionário é uma ferramenta de reflexão, não um diagnóstico psicológico.';
+
+        // Exibe o resultado na página
+        resultadoTeste.replaceChildren(
+            pontuacao,
+            mensagem,
+            observacao
+        );
+
     });
+
+}
+
+
+// --- RECURSO AVANÇADO 2: GRÁFICO CHART.JS ---
+
+const canvasVidalink = document.getElementById('graficoVidalink');
+
+// Verifica se o elemento e a biblioteca Chart.js existem
+if (canvasVidalink && typeof Chart !== 'undefined') {
+
+    new Chart(canvasVidalink, {
+
+        // Define o tipo de gráfico
+        type: 'bar',
+
+        // Dados da pesquisa Vidalink 2025
+        data: {
+            labels: [
+                'Geração Z',
+                'Millennials',
+                'Geração X',
+                'Baby Boomers'
+            ],
+
+            datasets: [{
+                label: 'Insatisfação com o próprio bem-estar (%)',
+
+                data: [30, 25, 17, 6],
+
+                backgroundColor: [
+                    '#0d6efd',
+                    '#6c757d',
+                    '#198754',
+                    '#ffc107'
+                ],
+
+                borderRadius: 6,
+                borderWidth: 0
+            }]
+        },
+
+        // Configurações visuais e interativas
+        options: {
+            responsive: true,
+
+            indexAxis: 'y',
+
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.x + '% dos participantes';
+                        }
+                    }
+                }
+            },
+
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 35,
+
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    },
+
+                    title: {
+                        display: true,
+                        text: 'Percentual de profissionais'
+                    }
+                },
+
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+
+} else if (canvasVidalink) {
+
+    console.error('Erro: biblioteca Chart.js não foi carregada.');
+
 }
