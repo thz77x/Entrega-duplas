@@ -118,19 +118,57 @@
                 </div>
             </div>
         </section>
-
-        <section id="dados">
-            <h2>Dados</h2>
-            <div id="graficos-dados"></div>
+        <section id="dados" class="container my-5">
+            <h2 class="mb-4">Dados: Insatisfação por Geração</h2>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <canvas id="graficoVidalink"></canvas>
+                </div>
+            </div>
         </section>
-
-        <section id="teste">
-            <h2>Teste de autopercepção</h2>
-            <div id="teste-autopercepcao"></div>
+        <section id="teste" class="container my-5">
+            <h2 class="mb-4">Teste de Autopercepção</h2>
+            <div class="card p-4">
+                <form id="form-teste">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">1. Sente-se culpado(a) quando não está a ser produtivo(a)?</label>
+                        <select class="form-select" id="q1" required>
+                            <option value="">Selecione...</option>
+                            <option value="0">Raramente</option>
+                            <option value="5">Frequentemente</option>
+                            <option value="10">Sempre</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">2. O seu "propósito" no trabalho justifica fazer horas extra não remuneradas?</label>
+                        <select class="form-select" id="q2" required>
+                            <option value="">Selecione...</option>
+                            <option value="0">Nunca</option>
+                            <option value="5">Às vezes</option>
+                            <option value="10">Sim, faz parte</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ver Resultado</button>
+                </form>
+                <div id="resultado-teste" class="mt-4 fw-bold fs-5 text-center"></div>
+            </div>
         </section>
-
-        <section id="fontes">
-            <h2>Fontes</h2>
+        <section id="fontes" class="container my-5">
+            <h2 class="mb-4">Referências e Fontes</h2>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    Relatório Vidalink (2023) - Insatisfação no Trabalho por Geração
+                    <span class="badge text-bg-primary rounded-pill">Eixo B</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    Estudo Fiocruz (2024) - Internações de Jovens por Burnout
+                    <span class="badge text-bg-danger rounded-pill">Eixo B</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    Direito à Desconexão e a Cultura Always-On (Pesquisa Teórica)
+                    <span class="badge text-bg-success rounded-pill">Eixo A</span>
+                </li>
+            </ul>
         </section>
     </main>
 
