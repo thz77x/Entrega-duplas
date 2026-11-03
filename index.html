@@ -25,10 +25,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="introducao">Início</a>
+                            <a class="nav-link active" aria-current="page" href="#introducao">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="eixos">Eixos</a>
+                            <a class="nav-link" href="#eixos">Eixos</a>
                         </li>
                     </ul>
                     <button type="button" id="botao-tema">Tema</button>
@@ -120,12 +120,11 @@
         <section id="dados" class="container my-5">
             <h2 class="mb-3">O cenário em dados</h2>
             <p class="text-body-secondary mb-4">
-                Pesquisas recentes ajudam a dimensionar os desafios de bem-estar e saúde mental
-                que atravessam diferentes gerações e faixas etárias.
+                Pesquisas recentes ajudam a dimensionar os desafios de bem-estar que atravessam diferentes gerações.
             </p>
 
             <div class="row g-4">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-8 mx-auto">
                     <article class="card h-100 shadow-sm grafico-card">
                         <div class="card-body">
                             <h3 class="h5 card-title">Sentimentos negativos por geração</h3>
@@ -147,33 +146,10 @@
                         </div>
                     </article>
                 </div>
-
-                <div class="col-12 col-lg-6">
-                    <article class="card h-100 shadow-sm grafico-card">
-                        <div class="card-body">
-                            <h3 class="h5 card-title">Internações por faixa etária</h3>
-                            <p class="card-text text-body-secondary small">
-                                Taxa de internações por transtornos mentais e comportamentais,
-                                por 100 mil habitantes.
-                            </p>
-                            <div class="grafico-container">
-                                <canvas id="graficoFiocruz" role="img"
-                                    aria-label="Gráfico de colunas: taxa de internação de 624,8 por 100 mil habitantes entre 20 e 24 anos, 719,7 entre 25 e 29 anos e 599,4 entre pessoas com 30 anos ou mais."></canvas>
-                            </div>
-                            <p class="small text-body-secondary mt-3 mb-0">
-                                Os números abrangem internações por transtornos mentais e comportamentais;
-                                não são específicos de Burnout. Fonte: <a
-                                    href="https://fiocruz.br/documento/2025/12/informe-ii-saude-mental-ciclo-de-informes-sobre-situacao-de-saude-da-juventude"
-                                    target="_blank" rel="noopener noreferrer">Fiocruz, Informe II: Saúde Mental</a>.
-                            </p>
-                        </div>
-                    </article>
-                </div>
             </div>
 
             <p class="small text-body-secondary mt-3">
-                Observação: as pesquisas usam populações, períodos e indicadores diferentes.
-                Portanto, os dois gráficos devem ser interpretados separadamente.
+                Observação: os percentuais representam os relatos dos participantes da pesquisa e não devem ser utilizados para rotular uma geração inteira.
             </p>
         </section>
         <section id="teste" class="container my-5">
@@ -181,7 +157,7 @@
             <div class="card p-4">
                 <form id="form-teste">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">1. Sente-se culpado(a) quando não está sendo
+                        <label class="form-label" for="q1">1. Sente-se culpado(a) quando não está sendo
                             produtivo(a)?</label>
                         <select class="form-select" id="q1" required>
                             <option value="">Selecione...</option>
@@ -191,7 +167,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">2. O seu "propósito" no trabalho justifica fazer horas extra
+                        <label class="form-label fw-bold" for="q2">2. O seu "propósito" no trabalho justifica fazer
+                            horas extra
                             não remuneradas?</label>
                         <select class="form-select" id="q2" required>
                             <option value="">Selecione...</option>
@@ -209,7 +186,7 @@
             <h2 class="mb-4">Referências e Fontes</h2>
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                    Relatório Vidalink (2023) - Insatisfação no Trabalho por Geração
+                    Vidalink — Check-up de Bem-estar 2026 Dados: Sentimentos negativos frequentes por geração
                     <span class="badge text-bg-primary rounded-pill">Eixo B</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
@@ -237,7 +214,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js"></script>
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

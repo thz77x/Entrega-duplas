@@ -58,3 +58,19 @@ button:hover {
         height: 260px;
     }
 }
+
+/* Acessibilidade: destaque ao navegar pelo teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 3px;
+}
+
+/* Interação: efeito ao pressionar botões e links */
+a:active,
+button:active,
+.btn:active {
+    transform: scale(0.98);
+}

@@ -1,226 +1,208 @@
-// js/app.js
-// Alternância entre tema claro e escuro usando o data-bs-theme do Bootstrap 5.3
+'use strict';
 
-(function () {
-  'use strict';
+// Estado compartilhado do gráfico para permitir a atualização das cores ao trocar o tema.
+let graficoVidalink = null;
 
-  const CHAVE_TEMA = 'tema-preferido';
-  const raiz = document.documentElement; // elemento <html>
-  const botao = document.getElementById('botao-tema');
+// --- RECURSO AVANÇADO 3: TEMA CLARO/ESCURO COM PERSISTÊNCIA ---
+(function inicializarTema() {
+    const CHAVE_TEMA = 'tema-preferido';
+    const raiz = document.documentElement;
+    const botaoTema = document.getElementById('botao-tema');
 
-  // Lê o tema salvo; retorna null se não houver ou se o localStorage falhar
-  function lerTemaSalvo() {
-    try {
-      const valor = localStorage.getItem(CHAVE_TEMA);
-      return valor === 'light' || valor === 'dark' ? valor : null;
-    } catch (erro) {
-      return null;
+    function lerTemaSalvo() {
+        try {
+            const tema = localStorage.getItem(CHAVE_TEMA);
+            return tema === 'light' || tema === 'dark' ? tema : null;
+        } catch (erro) {
+            return null;
+        }
     }
-  }
 
-  // Salva o tema; se o navegador bloquear o armazenamento, apenas ignora
-  function salvarTema(tema) {
-    try {
-      localStorage.setItem(CHAVE_TEMA, tema);
-    } catch (erro) {
-      // sem persistência: o tema vale só para esta visita
+    function salvarTema(tema) {
+        try {
+            localStorage.setItem(CHAVE_TEMA, tema);
+        } catch (erro) {
+            // O site continua funcionando mesmo quando o armazenamento está indisponível.
+        }
     }
-  }
 
-  // Tema preferido do sistema operacional
-  function temaDoSistema() {
-    const escuro =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return escuro ? 'dark' : 'light';
-  }
-
-  // Aplica o tema no <html> e sincroniza o estado do botão
-  function aplicarTema(tema) {
-    raiz.setAttribute('data-bs-theme', tema);
-    if (botao) {
-      botao.setAttribute('aria-pressed', String(tema === 'dark'));
+    function temaDoSistema() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
     }
-  }
 
-  // Alterna entre os dois temas e guarda a escolha
-  function alternarTema() {
-    const atual = raiz.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
-    const novo = atual === 'dark' ? 'light' : 'dark';
-    aplicarTema(novo);
-    salvarTema(novo);
-  }
+    function aplicarTema(tema) {
+        const temaValido = tema === 'dark' ? 'dark' : 'light';
+        raiz.setAttribute('data-bs-theme', temaValido);
 
-  // Inicialização: tema salvo > preferência do sistema
-  aplicarTema(lerTemaSalvo() || temaDoSistema());
+        if (botaoTema) {
+            const temaEscuroAtivo = temaValido === 'dark';
+            botaoTema.textContent = temaEscuroAtivo ? 'Tema escuro' : 'Tema claro';
+            botaoTema.setAttribute('aria-pressed', String(temaEscuroAtivo));
+            botaoTema.setAttribute(
+                'aria-label',
+                temaEscuroAtivo ? 'Alternar para tema claro' : 'Alternar para tema escuro'
+            );
+        }
 
-  if (botao) {
-    // Rótulo fixo em português; o estado muda via aria-pressed
-    botao.setAttribute('aria-label', 'Tema escuro');
-    botao.addEventListener('click', alternarTema);
-  }
+        atualizarCoresGrafico();
+    }
+
+    if (botaoTema) {
+        botaoTema.addEventListener('click', () => {
+            const temaAtual = raiz.getAttribute('data-bs-theme') || 'light';
+            const novoTema = temaAtual === 'dark' ? 'light' : 'dark';
+            aplicarTema(novoTema);
+            salvarTema(novoTema);
+        });
+    }
+
+    aplicarTema(lerTemaSalvo() || temaDoSistema());
+
+    function atualizarCoresGrafico() {
+        if (!graficoVidalink) return;
+
+        const estilos = getComputedStyle(raiz);
+        const corTexto = estilos.getPropertyValue('--cor-texto').trim();
+        const corGrade = estilos.getPropertyValue('--cor-grafico-grade').trim();
+
+        graficoVidalink.options.scales.x.ticks.color = corTexto;
+        graficoVidalink.options.scales.x.title.color = corTexto;
+        graficoVidalink.options.scales.x.grid.color = corGrade;
+        graficoVidalink.options.scales.y.ticks.color = corTexto;
+        graficoVidalink.update('none');
+    }
+
+    // Disponibiliza a função apenas para a rotina local de inicialização do gráfico.
+    window.atualizarCoresGrafico = atualizarCoresGrafico;
 })();
 
-
 // --- RECURSO AVANÇADO 1: TESTE DE AUTOPERCEPÇÃO ---
+(function inicializarTeste() {
+    const formulario = document.getElementById('form-teste');
+    const resultado = document.getElementById('resultado-teste');
 
-const formTeste = document.getElementById('form-teste');
-const resultadoTeste = document.getElementById('resultado-teste');
+    if (!formulario || !resultado) return;
 
-if (formTeste && resultadoTeste) {
+    formulario.addEventListener('submit', (evento) => {
+        evento.preventDefault();
 
-    // Permite que leitores de tela anunciem o resultado
-    resultadoTeste.setAttribute('aria-live', 'polite');
+        const campoQ1 = formulario.querySelector('#q1');
+        const campoQ2 = formulario.querySelector('#q2');
 
-    formTeste.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Captura os campos do formulário
-        const campoQ1 = formTeste.querySelector('#q1');
-        const campoQ2 = formTeste.querySelector('#q2');
-
-        // Verifica se os campos existem e foram preenchidos
-        if (!campoQ1 || !campoQ2 ||
-            campoQ1.value === '' || campoQ2.value === '') {
-
-            resultadoTeste.textContent = 'Por favor, responda às duas perguntas.';
+        if (!campoQ1 || !campoQ2 || campoQ1.value === '' || campoQ2.value === '') {
+            resultado.textContent = 'Responda às duas perguntas para visualizar o resultado.';
             return;
         }
 
-        // Converte as respostas para números
         const resposta1 = Number(campoQ1.value);
         const resposta2 = Number(campoQ2.value);
+        const respostasValidas = [resposta1, resposta2].every((valor) =>
+            Number.isFinite(valor) && [0, 5, 10].includes(valor)
+        );
 
-        // Verifica se os valores são válidos
-        if (!Number.isFinite(resposta1) ||
-            !Number.isFinite(resposta2)) {
-
-            resultadoTeste.textContent = 'Respostas inválidas. Tente novamente.';
+        if (!respostasValidas) {
+            resultado.textContent = 'Não foi possível validar as respostas. Confira as opções e tente novamente.';
             return;
         }
 
-        // Calcula a pontuação total
-        const score = resposta1 + resposta2;
+        const pontuacao = resposta1 + resposta2;
+        let feedback;
 
-        // Define o feedback de acordo com a pontuação
-        let feedback = '';
-
-        if (score <= 5) {
-
-            feedback = 'Suas respostas indicam poucos sinais de sobrecarga nas situações avaliadas. Continue observando seus limites.';
-
-        } else if (score <= 15) {
-
-            feedback = 'Atenção: suas respostas indicam alguns pontos de sobrecarga que merecem reflexão.';
-
+        if (pontuacao <= 5) {
+            feedback = 'Nas situações avaliadas, suas respostas indicam poucos sinais de sobrecarga. Continue observando seus limites.';
+        } else if (pontuacao <= 15) {
+            feedback = 'Suas respostas indicam alguns pontos de atenção. Reflita sobre sua rotina, suas pausas e seus limites.';
         } else {
-
-            feedback = 'Suas respostas indicam maior frequência de situações de sobrecarga. Vale refletir sobre seus limites e buscar apoio, se necessário.';
-
+            feedback = 'Suas respostas indicam maior frequência das situações apresentadas. Considere conversar com alguém de confiança ou buscar orientação adequada.';
         }
 
-        // Cria os elementos do resultado
-        const pontuacao = document.createElement('p');
-        pontuacao.className = 'mb-2';
-        pontuacao.textContent = `Sua pontuação: ${score}/20`;
+        const linhaPontuacao = document.createElement('p');
+        linhaPontuacao.className = 'fw-bold mb-2';
+        linhaPontuacao.textContent = `Pontuação das respostas: ${pontuacao}/20`;
 
-        const mensagem = document.createElement('p');
-        mensagem.className = 'text-primary mb-2';
-        mensagem.textContent = feedback;
+        const linhaFeedback = document.createElement('p');
+        linhaFeedback.className = 'mb-0';
+        linhaFeedback.textContent = feedback;
 
-        const observacao = document.createElement('small');
-        observacao.className = 'd-block mt-2 text-body-secondary fw-normal';
-        observacao.textContent =
-            'Este questionário é uma ferramenta de reflexão, não um diagnóstico psicológico.';
-
-        // Exibe o resultado na página
-        resultadoTeste.replaceChildren(
-            pontuacao,
-            mensagem,
-            observacao
-        );
-
+        resultado.replaceChildren(linhaPontuacao, linhaFeedback);
     });
+})();
 
-}
+// --- RECURSO AVANÇADO 2: VISUALIZAÇÃO DE DADOS COM CHART.JS ---
+(function inicializarGrafico() {
+    const canvas = document.getElementById('graficoVidalink');
 
+    if (!canvas) return;
 
-// --- RECURSO AVANÇADO 2: GRÁFICO CHART.JS ---
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js não foi carregado. Confira a conexão e a URL da biblioteca.');
+        return;
+    }
 
-const canvasVidalink = document.getElementById('graficoVidalink');
+    const raiz = document.documentElement;
+    const estilos = getComputedStyle(raiz);
+    const corTexto = estilos.getPropertyValue('--cor-texto').trim();
+    const corGrade = estilos.getPropertyValue('--cor-grafico-grade').trim();
 
-// Verifica se o elemento e a biblioteca Chart.js existem
-if (canvasVidalink && typeof Chart !== 'undefined') {
+    const dadosVidalink = {
+        labels: ['Geração Z', 'Millennials', 'Geração X', 'Baby Boomers'],
+        valores: [78, 68, 66, 43]
+    };
 
-    new Chart(canvasVidalink, {
-
-        // Define o tipo de gráfico
+    graficoVidalink = new Chart(canvas, {
         type: 'bar',
-
-        // Dados da pesquisa Vidalink 2025
         data: {
-            labels: [
-                'Geração Z',
-                'Millennials',
-                'Geração X',
-                'Baby Boomers'
-            ],
-
+            labels: dadosVidalink.labels,
             datasets: [{
-                label: 'Insatisfação com o próprio bem-estar (%)',
-
-                data: [30, 25, 17, 6],
-
-                backgroundColor: [
-                    '#0d6efd',
-                    '#6c757d',
-                    '#198754',
-                    '#ffc107'
-                ],
-
-                borderRadius: 6,
-                borderWidth: 0
+                label: 'Participantes com sentimentos negativos frequentes',
+                data: dadosVidalink.valores,
+                backgroundColor: ['#2457c5', '#547ac4', '#7797d1', '#9eb5df'],
+                borderRadius: 7,
+                borderSkipped: false,
+                maxBarThickness: 34
             }]
         },
-
-        // Configurações visuais e interativas
         options: {
-            responsive: true,
-
             indexAxis: 'y',
-
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+                duration: 650
+            },
             plugins: {
                 legend: {
                     display: false
                 },
-
                 tooltip: {
                     callbacks: {
-                        label: function(context) {
-                            return context.parsed.x + '% dos participantes';
-                        }
+                        label: (context) => `${context.parsed.x}% dos participantes`
                     }
                 }
             },
-
             scales: {
                 x: {
                     beginAtZero: true,
-                    max: 35,
-
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
-                        }
-                    },
-
+                    min: 0,
+                    max: 85,
                     title: {
                         display: true,
-                        text: 'Percentual de profissionais'
+                        text: 'Percentual de participantes (%)',
+                        color: corTexto
+                    },
+                    ticks: {
+                        color: corTexto,
+                        callback: (valor) => `${valor}%`
+                    },
+                    grid: {
+                        color: corGrade
                     }
                 },
-
                 y: {
+                    ticks: {
+                        color: corTexto
+                    },
                     grid: {
                         display: false
                     }
@@ -229,8 +211,7 @@ if (canvasVidalink && typeof Chart !== 'undefined') {
         }
     });
 
-} else if (canvasVidalink) {
-
-    console.error('Erro: biblioteca Chart.js não foi carregada.');
-
-}
+    if (typeof window.atualizarCoresGrafico === 'function') {
+        window.atualizarCoresGrafico();
+    }
+})();
