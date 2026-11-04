@@ -196,13 +196,13 @@ O processo está documentado no arquivo `AUDITORIA_IA.md`, que apresenta:
 Clone o repositório:
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/thz77x/Entrega-duplas.git
 ```
 
 Entre na pasta do projeto:
 
 ```bash
-cd A-Armadilha-do-Proposito
+cd Entrega-duplas
 ```
 
 Abra o arquivo `index.html` no navegador ou utilize a extensão Live Server do Visual Studio Code.
