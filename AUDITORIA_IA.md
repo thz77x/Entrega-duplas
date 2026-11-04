@@ -10,7 +10,7 @@ A aplicação reúne conteúdos informativos, pesquisas, visualizações de dado
 
 Objetivo: refletir sobre como preservar o significado do trabalho sem transformar o compromisso profissional em uma obrigação de disponibilidade permanente.
 
-Deploy: Aguardando publicação no GitHub Pages.
+Deploy: (https://thz77x.github.io/Entrega-duplas/).
 
 2. Cruzamento dos Eixos Temáticos
 Eixo A — Futuro do Trabalho

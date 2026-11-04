@@ -12,7 +12,7 @@ A aplicação reúne conteúdos informativos, pesquisas, visualizações de dado
 
 **Objetivo:** refletir sobre como preservar o significado do trabalho sem transformar o compromisso profissional em uma obrigação de disponibilidade permanente.
 
-**Deploy:** Aguardando publicação no GitHub Pages.
+**Deploy:** (https://thz77x.github.io/Entrega-duplas/).
 
 ## 2. Cruzamento dos Eixos Temáticos
 
@@ -209,20 +209,7 @@ Abra o arquivo `index.html` no navegador ou utilize a extensão Live Server do V
 
 ## 11. Publicação — GitHub Pages
 
-A aplicação será disponibilizada gratuitamente utilizando o GitHub Pages.
-
-Para publicar:
-
-1. Acesse o repositório no GitHub.
-2. Entre em Settings.
-3. Acesse Pages.
-4. Em Build and deployment, selecione Deploy from a branch.
-5. Escolha a branch `main` e a pasta `/ (root)`.
-6. Clique em Save.
-
-Após a publicação, o endereço oficial será inserido nesta seção.
-
-**Link de acesso:** Aguardando publicação.
+**Link de acesso:** (https://thz77x.github.io/Entrega-duplas/)
 
 ## 12. Licença
 
