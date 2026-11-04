@@ -60,7 +60,7 @@ button:active,
 }
 
 .grafico-card .card-body {
-    padding: var(--espacamento-medio);
+    padding: var(--espacamento-medio) 1rem;
 }
 
 .grafico-container {
