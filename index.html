@@ -1,220 +1,637 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
-        content="A armadilha do propósito: quando a busca por significado no trabalho vira combustível de autoexploração e burnout na Geração Z.">
-    <title>A armadilha do propósito</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        content="A Armadilha do Propósito investiga como a busca por significado no trabalho pode se transformar em sobrecarga e como preservar o bem-estar no futuro do trabalho.">
+
+    <meta name="theme-color" content="#f5f7fb">
+
+    <title>A Armadilha do Propósito | Sentido, trabalho e bem-estar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">A armadilha do propósito</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Ativar navegação">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom"
+            aria-label="Navegação principal">
+
+            <div class="container">
+
+                <a class="navbar-brand fw-bold" href="#introducao">
+                    A Armadilha do Propósito
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navegacaoPrincipal"
+                    aria-controls="navegacaoPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir ou fechar menu de navegação">
+
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="collapse navbar-collapse" id="navegacaoPrincipal">
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#introducao">Início</a>
+                            <a class="nav-link" href="#introducao">Início</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#eixos">Eixos</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#debates">Debates</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#dados">Dados</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#teste">Autopercepção</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#fontes">Fontes</a>
+                        </li>
+
                     </ul>
-                    <button type="button" id="botao-tema">Tema</button>
+
+                    <button type="button" id="botao-tema"
+                        class="btn btn-outline-secondary theme-button"
+                        aria-label="Alternar tema claro e escuro">
+                        Tema
+                    </button>
+
                 </div>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section id="introducao" class="container text-center mt-5">
+    <main id="conteudo">
+
+        <section id="introducao" class="container text-center mt-5 mb-5">
+
             <h1>A armadilha do propósito: quando o sentido vira sobrecarga</h1>
-            <p>
-                A Geração Z entrou no mercado de trabalho em busca de sentido, impacto e autonomia. Mas esse desejo
-                legítimo pode ser usado para justificar jornadas sem limite, metas inalcançáveis e a culpa por
-                descansar. Este site investiga esse paradoxo, apresenta dados sobre propósito e burnout e propõe um
-                teste para você refletir sobre sua própria relação com o trabalho.</p>
 
-        </section>
-
-
-        <section id="eixos" class="container my-5">
-            <h2>Eixos de análise</h2>
-
-            <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <article class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title h5">A armadilha do propósito</h3>
-                            <p class="card-text">O feedback instantâneo colide com o tempo necessário para o
-                                amadurecimento profissional.</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <article class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Cultura Always-On</h3>
-                            <p class="card-text">A invasão do espaço pessoal pelas notificações e a constante
-                                necessidade de validação em tempo real no trabalho remoto.</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <article class="card h-100">
-                        <div class="card-body">
-                            <h3 class="card-title h5">O Paradoxo do Propósito</h3>
-                            <p class="card-text">A busca por significado na carreira é frequentemente utilizada para
-                                justificar jornadas exaustivas e a ausência de limites.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section id="debates" class="container my-5">
-            <h2 class="mb-4">Debates Frequentes</h2>
-
-            <div class="accordion" id="accordionDebates">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#pergunta1" aria-expanded="true" aria-controls="pergunta1">
-                            Propósito no trabalho é positivo ou armadilha?
-                        </button>
-                    </h2>
-                    <div id="pergunta1" class="accordion-collapse collapse show" data-bs-parent="#accordionDebates">
-                        <div class="accordion-body">
-                            A busca por impacto social é legítima e faz parte das características da Geração Z, mas
-                            empresas frequentemente usam o "propósito" para mascarar salários baixos e exigir horas
-                            extra não remuneradas.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#pergunta2" aria-expanded="false" aria-controls="pergunta2">
-                            Como a IA e a hiperconectividade afetam o isolamento?
-                        </button>
-                    </h2>
-                    <div id="pergunta2" class="accordion-collapse collapse" data-bs-parent="#accordionDebates">
-                        <div class="accordion-body">
-                            Apesar de facilitar o trabalho remoto em redes globais, a falta de ancoragem comunitária e a
-                            comunicação estritamente virtual podem agravar a solidão digital e a Síndrome do Impostor.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="dados" class="container my-5">
-            <h2 class="mb-3">O cenário em dados</h2>
-            <p class="text-body-secondary mb-4">
-                Pesquisas recentes ajudam a dimensionar os desafios de bem-estar que atravessam diferentes gerações.
+            <p class="lead mx-auto">
+                A Geração Z entrou no mercado de trabalho em busca de sentido,
+                impacto e autonomia. A busca por significado pode tornar o
+                trabalho mais satisfatório, mas o problema começa quando o
+                propósito é usado para normalizar disponibilidade constante,
+                metas excessivas e culpa por descansar.
             </p>
 
+            <p class="mx-auto">
+                A pergunta central deste projeto é:
+                <strong>
+                    como preservar o sentido do trabalho sem transformar o
+                    compromisso profissional em uma obrigação de estar sempre
+                    disponível?
+                </strong>
+            </p>
+
+        </section>
+
+        <section id="eixos" class="container my-5">
+
+            <div class="mb-4">
+                <h2>Entendendo o paradoxo</h2>
+
+                <p>
+                    O propósito pode ser uma fonte de motivação, mas depende
+                    das condições concretas em que o trabalho acontece.
+                </p>
+            </div>
+
             <div class="row g-4">
-                <div class="col-12 col-lg-8 mx-auto">
-                    <article class="card h-100 shadow-sm grafico-card">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card h-100">
                         <div class="card-body">
-                            <h3 class="h5 card-title">Sentimentos negativos por geração</h3>
-                            <p class="card-text text-body-secondary small">
-                                Percentual de profissionais que relatam ansiedade, angústia ou desânimo
-                                na maior parte dos dias.
+
+                            <span class="text-primary fw-semibold">
+                                Faceta positiva
+                            </span>
+
+                            <h3 class="card-title h5 mt-2">
+                                Trabalho com significado
+                            </h3>
+
+                            <p class="card-text">
+                                A possibilidade de aprender, contribuir com
+                                algo relevante e ter autonomia ajuda muitos
+                                profissionais jovens a encontrar sentido na
+                                carreira. A pesquisa global da Deloitte de
+                                2025 mostra que propósito é importante para
+                                a satisfação e o bem-estar de 89% da Geração Z
+                                e 92% dos Millennials.
                             </p>
-                            <div class="grafico-container">
-                                <canvas id="graficoVidalink" role="img"
-                                    aria-label="Gráfico de barras horizontais: Geração Z 78%, Millennials 68%, Geração X 66% e Baby Boomers 43%."></canvas>
-                            </div>
-                            <p class="small text-body-secondary mt-3 mb-0">
-                                O Check-up de Bem-estar 2026 reuniu respostas de 11.800 profissionais
-                                de 290 empresas. Os dados descrevem os participantes da pesquisa e não
-                                devem ser usados para rotular uma geração.
-                                Fonte: <a href="https://vidalink.com.br/blog/check-up-de-bem-estar-2026/"
-                                    target="_blank" rel="noopener noreferrer">Vidalink, Check-up de Bem-estar 2026</a>.
-                            </p>
+
                         </div>
                     </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+
+                            <span class="text-danger fw-semibold">
+                                Faceta crítica
+                            </span>
+
+                            <h3 class="card-title h5 mt-2">
+                                Quando o compromisso vira sobrecarga
+                            </h3>
+
+                            <p class="card-text">
+                                A identificação com uma causa profissional
+                                pode ser explorada quando dedicação passa a
+                                significar aceitar tarefas sem limite,
+                                responder fora do expediente ou abrir mão
+                                do descanso. Essa é a contradição investigada
+                                pelo projeto, e não uma característica
+                                inevitável de uma geração.
+                            </p>
+
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card h-100">
+                        <div class="card-body">
+
+                            <span class="text-primary fw-semibold">
+                                Futuro do trabalho
+                            </span>
+
+                            <h3 class="card-title h5 mt-2">
+                                Cultura Always-On
+                            </h3>
+
+                            <p class="card-text">
+                                No trabalho remoto e nas rotinas digitais,
+                                mensagens, plataformas e reuniões podem
+                                atravessar os limites entre expediente e
+                                vida pessoal. Por isso, acordos de
+                                comunicação, jornada definida e períodos
+                                reais de desconexão são parte da organização
+                                do trabalho.
+                            </p>
+
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="debates" class="container my-5">
+
+            <h2 class="mb-4">Debates frequentes</h2>
+
+            <div class="accordion" id="accordionDebates">
+
+                <div class="accordion-item">
+
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#pergunta1"
+                            aria-expanded="true"
+                            aria-controls="pergunta1">
+
+                            Propósito no trabalho é positivo ou pode virar uma armadilha?
+
+                        </button>
+                    </h3>
+
+                    <div id="pergunta1"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#accordionDebates">
+
+                        <div class="accordion-body">
+                            O propósito pode fortalecer a motivação e a
+                            percepção de contribuição. Ele se torna
+                            problemático quando é usado para substituir
+                            condições justas de trabalho, remuneração
+                            adequada, limites de jornada e respeito ao
+                            descanso. Ter propósito não significa aceitar
+                            disponibilidade ilimitada.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#pergunta2"
+                            aria-expanded="false"
+                            aria-controls="pergunta2">
+
+                            Como o trabalho remoto pode intensificar a cultura Always-On?
+
+                        </button>
+                    </h3>
+
+                    <div id="pergunta2"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionDebates">
+
+                        <div class="accordion-body">
+                            Ferramentas digitais facilitam a colaboração,
+                            mas também podem tornar o contato fora do
+                            expediente mais frequente. Sem combinados
+                            sobre horários, urgências e canais de
+                            comunicação, a flexibilidade pode se
+                            transformar em expectativa de resposta
+                            permanente.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#pergunta3"
+                            aria-expanded="false"
+                            aria-controls="pergunta3">
+
+                            O que ajuda a preservar o bem-estar sem abrir mão do propósito?
+
+                        </button>
+                    </h3>
+
+                    <div id="pergunta3"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionDebates">
+
+                        <div class="accordion-body">
+                            É importante combinar expectativas claras,
+                            carga de trabalho viável, autonomia com suporte,
+                            pausas e respeito aos períodos de descanso.
+                            A responsabilidade não deve ficar apenas com
+                            o indivíduo: lideranças e organizações também
+                            definem as condições de trabalho.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="dados" class="container my-5">
+
+            <div class="mb-4">
+                <h2>O cenário em dados</h2>
+
+                <p class="text-body-secondary">
+                    Pesquisas recentes ajudam a dimensionar os desafios
+                    de bem-estar que atravessam diferentes gerações.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-12 col-lg-10">
+
+                    <article class="card h-100 shadow-sm grafico-card">
+
+                        <div class="card-body">
+
+                            <h3 class="h5 card-title">
+                                Sentimentos negativos por geração
+                            </h3>
+
+                            <p class="card-text text-body-secondary small">
+                                Percentual de profissionais que relatam
+                                ansiedade, angústia ou desânimo na maior
+                                parte dos dias.
+                            </p>
+
+                            <div class="grafico-container">
+
+                                <canvas id="graficoVidalink"
+                                    role="img"
+                                    aria-label="Gráfico de barras horizontais: Geração Z 78%, Millennials 68%, Geração X 66% e Baby Boomers 43%.">
+
+                                    Seu navegador não conseguiu exibir
+                                    o gráfico. Consulte os percentuais
+                                    descritos na legenda.
+
+                                </canvas>
+
+                            </div>
+
+                            <p class="small text-body-secondary mt-3 mb-0">
+                                O Check-up de Bem-estar 2026 reuniu
+                                respostas de 11.800 profissionais de
+                                290 empresas. Os dados descrevem os
+                                participantes da pesquisa e não devem
+                                ser usados para rotular uma geração.
+
+                                Fonte:
+                                <a href="https://vidalink.com.br/blog/check-up-de-bem-estar-2026/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    Vidalink — Check-up de Bem-estar 2026
+                                </a>.
+                            </p>
+
+                        </div>
+                    </article>
+
                 </div>
             </div>
 
             <p class="small text-body-secondary mt-3">
-                Observação: os percentuais representam os relatos dos participantes da pesquisa e não devem ser utilizados para rotular uma geração inteira.
+                Observação: os percentuais representam os relatos dos
+                participantes da pesquisa e não devem ser utilizados
+                para rotular uma geração inteira.
             </p>
+
+            <div class="row g-3 mt-2">
+
+                <div class="col-12 col-md-6">
+                    <article class="card h-100">
+                        <div class="card-body">
+
+                            <h3 class="h5">
+                                Propósito também importa
+                            </h3>
+
+                            <p>
+                                A pesquisa global da Deloitte de 2025
+                                registrou que 89% da Geração Z e 92%
+                                dos Millennials consideram o propósito
+                                importante para a satisfação e o
+                                bem-estar no trabalho.
+                            </p>
+
+                            <a href="https://www.deloitte.com/global/en/about/press-room/deloitte-2025-gen-z-and-millennial-survey.html"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Consultar pesquisa da Deloitte
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <article class="card h-100">
+                        <div class="card-body">
+
+                            <h3 class="h5">
+                                Saúde mental entre jovens
+                            </h3>
+
+                            <p>
+                                O Informe II da Fiocruz contabilizou
+                                579,5 internações por transtornos mentais
+                                e comportamentais por 100 mil habitantes
+                                entre pessoas de 15 a 29 anos, no período
+                                de 2022 a 2024. O dado não se refere
+                                exclusivamente a Burnout.
+                            </p>
+
+                            <a href="https://fiocruz.br/documento/2025/12/informe-ii-saude-mental-ciclo-de-informes-sobre-situacao-de-saude-da-juventude"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Consultar informe da Fiocruz
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
+            <aside class="alert alert-secondary mt-4"
+                aria-label="Limites de interpretação dos dados">
+
+                Os dados são autorrelatados e têm recortes e metodologias
+                diferentes. Eles ajudam a contextualizar o tema, mas não
+                demonstram, isoladamente, que o propósito cause
+                adoecimento nem permitem diagnosticar uma pessoa.
+
+            </aside>
+
         </section>
+
         <section id="teste" class="container my-5">
-            <h2 class="mb-4">Teste de Autopercepção</h2>
+
+            <div class="mb-4">
+                <h2>Teste de autopercepção</h2>
+
+                <p>
+                    Reflita sobre duas situações relacionadas à pressão
+                    por produtividade e aos limites no trabalho.
+                </p>
+            </div>
+
             <div class="card p-4">
+
                 <form id="form-teste">
-                    <div class="mb-3">
-                        <label class="form-label" for="q1">1. Sente-se culpado(a) quando não está sendo
-                            produtivo(a)?</label>
-                        <select class="form-select" id="q1" required>
-                            <option value="">Selecione...</option>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold" for="q1">
+                            1. Você sente culpa quando não está sendo produtivo(a)?
+                        </label>
+
+                        <select class="form-select" id="q1" name="q1" required>
+
+                            <option value="">Selecione uma resposta</option>
                             <option value="0">Raramente</option>
                             <option value="5">Frequentemente</option>
                             <option value="10">Sempre</option>
+
                         </select>
+
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-bold" for="q2">2. O seu "propósito" no trabalho justifica fazer
-                            horas extra
-                            não remuneradas?</label>
-                        <select class="form-select" id="q2" required>
-                            <option value="">Selecione...</option>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold" for="q2">
+                            2. Você sente que o propósito do trabalho justifica
+                            fazer horas extras sem remuneração?
+                        </label>
+
+                        <select class="form-select" id="q2" name="q2" required>
+
+                            <option value="">Selecione uma resposta</option>
                             <option value="0">Nunca</option>
                             <option value="5">Às vezes</option>
                             <option value="10">Sim, faz parte</option>
+
                         </select>
+
                     </div>
-                    <button type="submit" class="btn btn-primary">Ver Resultado</button>
+
+                    <button type="submit" class="btn btn-primary">
+                        Ver resultado
+                    </button>
+
                 </form>
-                <div id="resultado-teste" class="mt-4 fw-bold fs-5 text-center"></div>
+
+                <div id="resultado-teste"
+                    class="mt-4 fw-bold fs-5 text-center"
+                    aria-live="polite"
+                    aria-atomic="true">
+                </div>
+
+                <p class="small text-body-secondary mt-3 mb-0">
+                    Este questionário é educativo e serve apenas para
+                    reflexão. Não é instrumento psicológico validado,
+                    não avalia risco de Burnout e não substitui
+                    orientação profissional.
+                </p>
+
             </div>
         </section>
+
         <section id="fontes" class="container my-5">
-            <h2 class="mb-4">Referências e Fontes</h2>
+
+            <h2 class="mb-4">Referências e fontes</h2>
+
+            <p class="text-body-secondary">
+                As fontes consultadas ajudam a contextualizar os dados,
+                os desafios do bem-estar e a discussão sobre os limites
+                no trabalho.
+            </p>
+
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                    Vidalink — Check-up de Bem-estar 2026 Dados: Sentimentos negativos frequentes por geração
-                    <span class="badge text-bg-primary rounded-pill">Eixo B</span>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 bg-transparent">
+
+                    <a href="https://vidalink.com.br/blog/check-up-de-bem-estar-2026/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        VIDALINK. Check-up de Bem-estar 2026.
+                    </a>
+
+                    <span class="badge text-bg-primary">
+                        Bem-estar por geração
+                    </span>
+
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                    Estudo Fiocruz (2024) - Internações de Jovens por Burnout
-                    <span class="badge text-bg-danger rounded-pill">Eixo B</span>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 bg-transparent">
+
+                    <a href="https://www.deloitte.com/global/en/about/press-room/deloitte-2025-gen-z-and-millennial-survey.html"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        DELOITTE. 2025 Gen Z and Millennial Survey.
+                    </a>
+
+                    <span class="badge text-bg-success">
+                        Propósito e trabalho
+                    </span>
+
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-                    Direito à Desconexão e a Cultura Always-On (Pesquisa Teórica)
-                    <span class="badge text-bg-success rounded-pill">Eixo A</span>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 bg-transparent">
+
+                    <a href="https://juventudect.epsjv.fiocruz.br/acervo/boletins"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        FIOCRUZ / EPSJV. Informe II: Saúde Mental —
+                        Ciclo de Informes sobre a Situação de Saúde
+                        da Juventude Brasileira (2025).
+                    </a>
+
+                    <span class="badge text-bg-danger">
+                        Saúde mental
+                    </span>
+
                 </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 bg-transparent">
+
+                    <a href="https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/perguntas-frequentes/jornada-de-trabalho/o-que-se-considera-jornada"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        MINISTÉRIO DO TRABALHO E EMPREGO.
+                        O que se considera jornada normal de trabalho? (2026).
+                    </a>
+
+                    <span class="badge text-bg-secondary">
+                        Jornada de trabalho
+                    </span>
+
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap gap-2 bg-transparent">
+
+                    <a href="https://revista.tst.jus.br/rtst/article/view/136"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        MARTOS, SANTOS E BARUFI (2025).
+                        Direito à desconexão e teletrabalho.
+                    </a>
+
+                    <span class="badge text-bg-success">
+                        Direito à desconexão
+                    </span>
+
+                </li>
+
             </ul>
+
         </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 Arthur Saldanha e Lucas Victor.</p>
+    <footer class="text-center py-4">
+
+        <p class="mb-1">
+            © 2026 — A Armadilha do Propósito
+        </p>
+
+        <p class="small mb-0">
+            Projeto acadêmico de Arthur Saldanha e Lucas Victor.
+        </p>
+
     </footer>
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js"></script>
-    <script src="js/app.js"></script>
-</body>
 
+    <script src="js/app.js"></script>
+
+</body>
 </html>
